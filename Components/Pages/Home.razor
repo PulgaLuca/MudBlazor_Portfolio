@@ -1,0 +1,213 @@
+﻿@page "/"
+@using Commons
+@inject Services.IDataService DataService
+
+<MudContainer>
+    <MudContainer>
+        <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true">Luca Pulga - Curriculum Vitae</MudText>
+        <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Style="height: auto; margin-bottom: 30px">
+            <MudItem>
+                <img src="/Images/Profile.jpg" alt="Luca Pulga" style="width: 150px; height: auto; border-radius: 7%; display: block; margin-left: auto; margin-right: auto;" />
+            </MudItem>
+
+        </MudGrid>
+    </MudContainer>
+
+    @if (isLoading)
+    {
+        <MudText Typo="Typo.body1" Align="Align.Center">Loading data...</MudText>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Error">@errorMessage</MudText>
+    }
+    else
+    {
+        <MudTabs>
+            <MudTabPanel Text="Work Experiences">
+                <MudGrid>
+                    @if (workExperiences != null && workExperiences.Any())
+                    {
+                        @foreach (var experience in workExperiences)
+                        {
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudCard>
+                                    <MudCardContent>
+                                        <MudText Typo="Typo.h5">@experience.Role</MudText>
+                                        <MudText Typo="Typo.subtitle1">@experience.Company</MudText>
+                                        <MudText Typo="Typo.subtitle2">@experience.Location</MudText>
+                                        <MudText Typo="Typo.body2">@experience.StartDate - @experience.EndDate</MudText>
+                                        <ul>
+                                            @foreach (var responsibility in experience.Responsibilities)
+                                            {
+                                                <li>@responsibility</li>
+                                            }
+                                        </ul>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
+                        }
+                    }
+                    else
+                    {
+                        <MudText Style="margin-top: 30px;"> No Work Experiences available.</MudText>
+                    }
+                </MudGrid>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Education">
+                <MudGrid>
+                    @if (studies != null && studies.Any())
+                    {
+                        @foreach (var study in studies)
+                        {
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudCard>
+                                    <MudCardContent>
+                                        <MudText Typo="Typo.h5">@study.Degree</MudText>
+                                        <MudText Typo="Typo.subtitle1">@study.Institution - @study.Location</MudText>
+                                        <MudText Typo="Typo.body2">@study.StartDate - @study.EndDate</MudText>
+                                        <ul>
+                                            @foreach (var detail in study.Details)
+                                            {
+                                                <li>@detail</li>
+                                            }
+                                        </ul>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
+                        }
+                    }
+                    else
+                    {
+                        <MudText Style="margin-top: 30px;">No education available.</MudText>
+                    }
+                </MudGrid>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Awards">
+                <MudGrid>
+                    @if (awards != null && awards.Any())
+                    {
+                        @foreach (var award in awards)
+                        {
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudCard>
+                                    <MudCardContent>
+                                        <MudText Typo="Typo.h5">@award.Title</MudText>
+                                        <MudText Typo="Typo.subtitle2">@award.Issuer</MudText>
+                                        <MudText Typo="Typo.body2">@award.Description</MudText>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
+                        }
+                    }
+                    else
+                    {
+                        <MudText Style="margin-top: 30px;">No awards available.</MudText>
+                    }
+                </MudGrid>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Projects">
+                <MudGrid>
+                    @if (projects != null && projects.Any())
+                    {
+                        @foreach (var project in projects)
+                        {
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudCard>
+                                    <MudCardContent>
+                                        <MudText Typo="Typo.h5">@project.Title</MudText>
+                                        <MudText Typo="Typo.body2">@project.Description</MudText>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
+                        }
+                    }
+                    else
+                    {
+                        <MudText Style="margin-top: 30px;">No projects available.</MudText>
+                    }
+                </MudGrid>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Volunteering Experiences">
+                <MudGrid>
+                    @if (volunteeringExperiences != null && volunteeringExperiences.Any())
+                    {
+                        @foreach (var Volunteering in volunteeringExperiences)
+                        {
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudCard>
+                                    <MudCardContent>
+                                        <MudText Typo="Typo.h5">@Volunteering.Role</MudText>
+                                        <MudText Typo="Typo.subtitle1">@Volunteering.Company - @Volunteering.Location</MudText>
+                                        <MudText Typo="Typo.body2">@Volunteering.StartDate - @Volunteering.EndDate</MudText>
+                                        <ul>
+                                            @foreach (var responsibility in Volunteering.Responsibilities)
+                                            {
+                                                <li>@responsibility</li>
+                                            }
+                                        </ul>
+                                    </MudCardContent>
+                                </MudCard>
+                            </MudItem>
+                        }
+                    }
+                    else
+                    {
+                        <MudText Style="margin-top: 30px;">No Volunteering Experiences available.</MudText>
+                    }
+                </MudGrid>
+            </MudTabPanel>
+        </MudTabs>
+    }
+
+    <MudFooter>
+        <MudContainer>
+            <MudText Typo="Typo.body2" Align="Align.Center" Style="margin-top: 100px">
+                <MudLink Href="https://www.linkedin.com/in/lucapulga/" Target="_blank">LinkedIn</MudLink> | 
+                <MudLink Href="https://github.com/PulgaLuca" Target="_blank">GitHub</MudLink>
+            </MudText>
+        </MudContainer>
+    </MudFooter>
+</MudContainer>
+
+
+@code {
+    private IEnumerable<Models.WorkExperience> workExperiences;
+    private IEnumerable<Models.Study> studies;
+    private IEnumerable<Models.Project> projects;
+    private IEnumerable<Models.Award> awards;
+    private IEnumerable<Models.Volunteering> volunteeringExperiences;
+
+
+    private bool isLoading = true; // Flag to indicate whether data is loading.
+    private string errorMessage = null; // Variable to store error messages if data loading fails.
+
+    /// <summary>
+    /// This method is called when the component is initialized asynchronously.
+    /// It retrieves data from the DataService for work experiences, education, projects, awards, and volunteering experiences.
+    /// </summary>
+    /// <returns>Asynchronous Task representing the operation.</returns>
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            workExperiences = await DataService.GetExperiencesAsync();
+            studies = await DataService.GetStudiesAsync();
+            projects = await DataService.GetProjectsAsync();
+            awards = await DataService.GetAwardsAsync();
+            volunteeringExperiences = await DataService.GetVolunteeringAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error loading data: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

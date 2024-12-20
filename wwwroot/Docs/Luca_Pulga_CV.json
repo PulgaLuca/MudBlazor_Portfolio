@@ -1,0 +1,105 @@
+{
+    "work_experience": [
+        {
+            "role": "Team Leader - Software Engineer",
+            "company": "Aurora Rocketry Team",
+            "location": "Bologna, Italy",
+            "start_date": "09/2024",
+            "end_date": "Present",
+            "responsibilities": [
+                "Designed embedded software architecture.",
+                "Implemented the Quaternion Method, Kalman Filter, Finite State Machine, data logging, and telemetry with LoRa."
+            ]
+        },
+        {
+            "role": "Software Engineer Consultant",
+            "company": "Akkodis",
+            "location": "Bologna, Italy",
+            "start_date": "07/2023",
+            "end_date": "12/2024",
+            "responsibilities": [
+                "Improved database structure and CRUD operations, increasing efficiency by 35%.",
+                "Implemented automated test cases using TDD, raising code coverage by 15% in Go.",
+                "Completed training in AWS."
+            ]
+        },
+        {
+            "role": "Software Developer Intern",
+            "company": "Maggioli Group",
+            "location": "Sant\u2019arcangelo di Romagna, Italy",
+            "start_date": "05/2021",
+            "end_date": "06/2021",
+            "responsibilities": [
+                "Developed responsive UI with Bootstrap 4, jQuery, TypeScript, and Angular."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "degree": "BS, Computer Science and Engineering",
+            "institution": "University of Bologna",
+            "location": "Cesena, Italy",
+            "start_date": "2022",
+            "end_date": "Present",
+            "details": [
+                "Created a 2D videogame using OOP and Functional Programming in Java."
+            ]
+        },
+        {
+            "degree": "High School Diploma in Computer Science",
+            "institution": "Technical Technological Institute Blaise Pascal",
+            "location": "Cesena, Italy",
+            "start_date": "2017",
+            "end_date": "2022",
+            "details": [
+                "Gained experience with C#, PHP, HTML, CSS, JS, MySQL, MongoDB.",
+                "Participated in Computer Science Olympiad competitions.",
+                "GPA: 4.0."
+            ]
+        }
+    ],
+    "awards": [
+		{
+            "title": "8th classified in Huawei Developer Competition",
+            "issuer": "Huawei",
+            "description": "Design and creation of the platform “S.A.F.E.”. It combines cutting-edge data analytics, high-performance computing, and hyperlocal sensor networks to deliver real-time, AI-driven forecasting for natural disaster risk and severity."
+            
+        },
+		{
+            "title": "Akkodis Challenge",
+            "issuer": "Akkodis",
+            "description": "Best Solver in Akkodis Challenge"
+            
+        },
+		{
+            "title": "1st place in Coding Challenge Week Senior",
+            "issuer": "Akkodis",
+            "description": "Python algorithms, Rest API, System Design, Testing, Application Security and Microservices problems"
+            
+        },
+		{
+            "title": "SCHOLARSHIP - Artificial intelligence, IoT, climate change, sustainability, and citizenship",
+            "issuer": "Coesia",
+            "description": "Creation of an eco-sustainable greenhouse using Artificial Intelligence and Internet of Things in Python with Google Colab and ESP32 microcontroller to build a fair and green Society;"
+            
+        }
+    ],
+	"projects": [
+		{
+			"title": "START HACK Hackathon 23",
+			"description": "Design and creation of the app mock-up COMPAINABILITY. To raise awareness among employees, me and my team developed an app that shows them their ecological footprint in a playful way and helps them to record and improve it."
+		}
+	],
+	"volunteeting": [
+		{
+            "role": "Volunteer - Educator",
+            "company": "APS NO PROFIT “LA PIAZZETTA”",
+            "location": "Cesena, Italy",
+            "start_date": "07/2019",
+            "end_date": "06/2024",
+            "responsibilities": [
+                "Promotion of study independence for children in their learning course, assisting them with most difficult and STEM subjects. Particular attention to children with specific learning disabilities (dyscalculia, dysgraphia, dyslexia)."
+            ]
+        }
+	]
+}
